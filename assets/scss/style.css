@@ -1630,7 +1630,12 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 12px;
-  list-style: none;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
   padding: 0;
   margin: 0;
   font-size: 13px;
@@ -2060,26 +2065,31 @@ a:focus-visible, button:focus-visible {
 .detail-faq__questions {
   min-width: 0;
 }
-.detail-faq details {
+.detail-faq__item {
   background: #f1f1f1;
   margin-bottom: 10px;
 }
-.detail-faq summary {
+.detail-faq__toggle {
   position: relative;
   display: flex;
   align-items: center;
   min-height: 80px;
   cursor: pointer;
-  list-style: none;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
   padding: 20px 64px 20px 32px;
   font-size: 17px;
   line-height: 1.4;
   font-weight: 700;
 }
-.detail-faq summary::-webkit-details-marker {
+.detail-faq__answer[hidden] {
   display: none;
 }
-.detail-faq summary::after {
+.detail-faq__toggle::after {
   content: "+";
   position: absolute;
   right: 20px;
@@ -2089,16 +2099,16 @@ a:focus-visible, button:focus-visible {
   line-height: 1;
   color: #0b2068;
 }
-.detail-faq details[open] summary::after {
+.detail-faq__toggle[aria-expanded=true]::after {
   content: "−";
 }
-.detail-faq details > p {
+.detail-faq .detail-faq__answer > p {
   margin: 0;
   padding: 0 32px 24px;
   font-size: 16px;
   line-height: 1.6;
 }
-.detail-faq summary:focus-visible {
+.detail-faq__toggle:focus-visible {
   outline: 2px solid #ff6b2c;
   outline-offset: -3px;
 }
@@ -2120,11 +2130,11 @@ a:focus-visible, button:focus-visible {
   .detail-faq {
     padding: 48px 0;
   }
-  .detail-faq summary {
+  .detail-faq__toggle {
     padding-left: 20px;
     font-size: 16px;
   }
-  .detail-faq details > p {
+  .detail-faq .detail-faq__answer > p {
     padding-inline: 20px;
   }
 }
