@@ -1038,3 +1038,16 @@ a:focus-visible, button:focus-visible { outline: 2px solid #ff6b2c; outline-offs
   .corporate-invitation__links { flex-direction: column; gap: 20px; }
   .corporate-invitation .dealer-button { width: 100%; }
 }
+
+.contact-whatsapp {
+  position: relative; overflow: hidden; margin-top: 24px; padding: 32px; background: $brand-color; color: #fff;
+  &__icon { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 24px; border: 1px solid rgb(255 255 255 / 24%); border-radius: 50%; color: #ff925e; }
+  &__eyebrow { margin: 0 0 12px; color: #ff925e; font-size: 11px; line-height: 1.5; letter-spacing: .1em; font-weight: 700; }
+  h3 { margin: 0 0 16px; font-size: clamp(25px, 2vw, 32px); line-height: 1.2; letter-spacing: -.025em; }
+  > p:not(.contact-whatsapp__eyebrow) { max-width: 430px; margin: 0 0 24px; font-size: 16px; line-height: 1.7; font-weight: 300; }
+  &__button { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 54px; max-width: 100%; padding: 14px 24px; border-radius: 100px; background: #ff6b2c; color: #fff; font-size: 15px; font-weight: 700; text-decoration: none; }
+  &__button:hover { background: #df4a12; }
+  &__button > span[aria-hidden] { font-size: 26px; line-height: 1; }
+  &__phone { display: block; margin-top: 16px; color: #fff; font-size: 14px; letter-spacing: .03em; }
+  @media (max-width: 650px) { padding: 28px 24px; &__button { width: 100%; } }
+}

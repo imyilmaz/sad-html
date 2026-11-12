@@ -89,9 +89,9 @@ Seçili buton turuncu/beyaz; mevcut yerel ok SVG’si normalde sağ alta, seçil
 
 ## İletişim sayfası
 
-`contact.html`, mevcut lacivert/turuncu tasarım diliyle hazırlanmıştır: başlık bandı, İstanbul/İzmir iletişim kartları, statik HTML formu ve geniş konum haritası. Adres, telefon ve e-posta içerikleri kullanıcının referansı https://www.esdenizcilik.com/tr/iletisim sayfasından alınmıştır; bu bilgiler Sıfır Araç Danışmanı’nın gerçek iletişim bilgileri olarak ayrıca doğrulanmamıştır.
+`contact.html`, mevcut lacivert/turuncu tasarım diliyle hazırlanmıştır: tek Lorem ipsum adres kartı, info@sifiraracdanismani.com e-posta bağlantısı, statik HTML formu ve İstanbul şehir haritası. Yol tarifi bağlantıları geçici olarak # değerindedir.
 
-Harita, referans sayfadaki İstanbul koordinatını (41.10491246815286,28.98759573698044) kullanan, API anahtarı içermeyen bir Google Maps iframe’idir. iframe lazy-load, erişilebilir title ve mobil boyutlara sahiptir. Google haritası araç içinde görsel olarak açılamadığı için render kontrolü yapılmamıştır.
+Harita, İstanbul şehrini gösteren, API anahtarı gerektirmeyen bir Google Maps iframe’idir. Belirli bir işletme konumunu temsil etmez; lazy-load, erişilebilir başlık ve mobil boyutlar kullanır.
 
 Kullanıcı yalnızca HTML form istedi: action, submit butonu, mailto taslağı, fetch/AJAX veya gönderim JavaScript’i eklenmemiştir. Dört alanın label/name/id/type/autocomplete bilgileri hazırdır; Gönder butonu type=button’dır. Backend daha sonra gönderim adresini ve submit davranışını bağlayacaktır. Ortak main.js sadece mevcut site menüsü için kullanılır.
 
