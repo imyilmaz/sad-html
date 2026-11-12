@@ -476,14 +476,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid #ff6b2c; outline-offs
 }
 .detail-overview {
   width: calc(100% - clamp(48px, 9.5vw, 164px)); margin: 40px auto 0; padding: 36px 60px 50px;
-  display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); align-items: start; gap: 64px; background: $border-color;
+  display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr); align-items: start; gap: 64px; background: $border-color;
   @media (max-width: 1400px) { padding-inline: 32px; gap: 32px; }
   @media (max-width: 1100px) { grid-template-columns: minmax(0, 1fr); }
   @media (max-width: 650px) { width: 100%; margin-top: 24px; padding: 20px 16px; gap: 28px; }
 }
 .detail-gallery {
   min-width: 0; padding-top: 32px;
-  &__swiper { position: relative; }
+  &__swiper { position: relative; min-width: 0; max-width: 100%; }
   &__image-link { display: block; position: relative; cursor: zoom-in; }
   &__image-link > img { display: block; width: 100%; height: auto; aspect-ratio: 836 / 470; object-fit: contain; }
   &__pagination { position: static; margin-block: 32px; --swiper-pagination-color: #ff6b2c; --swiper-pagination-bullet-inactive-color: #bbb; --swiper-pagination-bullet-size: 10px; }
@@ -495,13 +495,26 @@ a:focus-visible, button:focus-visible { outline: 2px solid #ff6b2c; outline-offs
 }
 .detail-play { display: inline-grid; place-items: center; flex: 0 0 50px; width: 50px; height: 50px; padding-left: 3px; border: 2px solid #ff6b2c; border-radius: 50%; color: #ff6b2c; background: rgb(255 255 255 / 90%); font-size: 20px; }
 .vehicle-specifications {
-  min-width: 0;
-  dl { max-width: 356px; margin: 0; }
-  dl > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 20px; padding-block: 7px; font-size: 15px; line-height: 1.5; }
-  dt { font-weight: 400; }
-  dd { margin: 0; overflow-wrap: anywhere; font-weight: 300; }
-  @media (max-width: 1100px) { dl { max-width: none; } dl > div { border-bottom: 1px solid #ddd; gap: 24px; } }
+  min-width: 0; padding: 15px; border: 1px solid #e4e8ee; border-radius: 16px;
+  background: #fff; box-shadow: 0 6px 24px rgb(11 32 104 / 4%);
+  h2 { position: relative; margin: 0 0 8px; padding-bottom: 18px; color: $brand-color; font-size: 22px; line-height: 1.25; }
+  h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 36px; height: 3px; border-radius: 2px; background: #ff6b2c; }
+  dl { margin: 0; }
+  dl > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: center; gap: 14px; padding-block: 6px; border-bottom: 1px solid #edf0f4; font-size: 14px; line-height: 1.5; }
+  dl > div:last-child { border-bottom: 0; padding-bottom: 0; }
+  dt { min-width: 0; color: #727983; font-weight: 400; }
+  dd { min-width: 0; margin: 0; color: #303746; overflow-wrap: anywhere; font-weight: 700; }
+  .vehicle-specifications__highlight { color: $brand-color; }
+  &__badge { display: inline-flex; align-items: center; max-width: 100%; padding: 4px 10px; border-radius: 20px; background: #eef2fc; color: $brand-color; font-size: 12px; line-height: 1.5; font-weight: 700; }
+  &__badge--neutral { background: #f2f3f5; color: #5a6472; }
+  @media (max-width: 650px) {
+    padding: 15px; border-radius: 12px;
+    h2 { font-size: 20px; }
+    dl > div { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 14px; }
+    dt { font-size: 13px; }
+  }
 }
+
 .vehicle-description, .vehicle-video {
   width: min(1196px, calc(100% - 64px)); margin-inline: auto;
   @media (max-width: 650px) { width: 100%; }
