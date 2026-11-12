@@ -31,6 +31,10 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+:where(a, button, input[type=button], input[type=submit], input[type=reset], [role=button]) {
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
 body.menu-open {
   overflow: hidden;
 }
@@ -442,7 +446,7 @@ a:focus-visible, button:focus-visible {
 .vehicle-card {
   height: auto;
   background: #fff;
-  transition: box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 .vehicle-card__link {
   display: flex;
@@ -1626,6 +1630,7 @@ a:focus-visible, button:focus-visible {
   padding: 24px clamp(24px, 4.75vw, 82px) 20px;
 }
 .detail-breadcrumb ol {
+  list-style: none;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -1640,6 +1645,9 @@ a:focus-visible, button:focus-visible {
   margin: 0;
   font-size: 13px;
   line-height: 1.5;
+}
+.detail-breadcrumb li {
+  list-style: none;
 }
 .detail-breadcrumb li + li::before {
   content: "/";
