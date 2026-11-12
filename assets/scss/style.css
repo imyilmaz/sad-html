@@ -747,7 +747,6 @@ a:focus-visible, button:focus-visible {
   height: 58px;
   padding: 0;
   border: 0;
-  border-bottom: 2px solid transparent;
   background: none;
   cursor: pointer;
 }
@@ -759,9 +758,6 @@ a:focus-visible, button:focus-visible {
 }
 .brand-tabs__tab:hover img {
   opacity: 0.5;
-}
-.brand-tabs__tab[aria-selected=true] {
-  border-bottom-color: #0b2068;
 }
 .brand-tabs__tab[aria-selected=true] img {
   opacity: 1;
@@ -886,6 +882,7 @@ a:focus-visible, button:focus-visible {
 .advantages__card {
   position: relative;
   display: block;
+  overflow: hidden;
   aspect-ratio: 356/540;
   color: #fff;
   text-decoration: none;
@@ -1015,6 +1012,7 @@ a:focus-visible, button:focus-visible {
 .weekly-offer__slider {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 60px;
+  container-type: inline-size;
 }
 .weekly-offer .swiper-slide {
   background: #fff;
@@ -1104,19 +1102,27 @@ a:focus-visible, button:focus-visible {
 .weekly-offer__button:hover {
   background: #df4a12;
 }
-.weekly-offer__pagination {
+.weekly-offer .weekly-offer__pagination {
   --swiper-pagination-color: #ff6b2c;
   --swiper-pagination-bullet-inactive-color: #f1f1f1;
   --swiper-pagination-bullet-inactive-opacity: 1;
   --swiper-pagination-bullet-size: 10px;
-  position: relative;
+  position: absolute;
   inset: auto;
-  width: calc((100% - 240px) * 0.6);
-  margin: -20px 0 0 176px;
-  height: 20px;
-  line-height: 20px;
+  top: calc((100% - 60px) / 2);
+  left: 144px;
+  width: auto;
+  height: auto;
+  margin: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
-.weekly-offer .swiper-pagination-bullet {
+.weekly-offer .weekly-offer__pagination .swiper-pagination-bullet {
+  display: block;
+  margin: 0;
   position: relative;
   border: 0;
   padding: 0;
@@ -1130,9 +1136,8 @@ a:focus-visible, button:focus-visible {
   .weekly-offer__layout {
     column-gap: 32px;
   }
-  .weekly-offer__pagination {
-    width: calc((100% - 176px) * 0.6);
-    margin-left: 144px;
+  .weekly-offer .weekly-offer__pagination {
+    left: 128px;
   }
 }
 @media (max-width: 1100px) {
@@ -1160,9 +1165,9 @@ a:focus-visible, button:focus-visible {
   .weekly-offer__model {
     margin-bottom: 24px;
   }
-  .weekly-offer__pagination {
-    width: 100%;
-    margin: 24px 0 0;
+  .weekly-offer .weekly-offer__pagination {
+    left: 104px;
+    top: calc((100cqw - 120px) * 421 / 1432);
   }
 }
 @media (max-width: 1000px) {
@@ -1186,6 +1191,11 @@ a:focus-visible, button:focus-visible {
   .weekly-offer__media {
     grid-column: 1;
     grid-row: 1;
+    padding-left: 28px;
+  }
+  .weekly-offer .weekly-offer__pagination {
+    left: 4px;
+    top: calc((100cqw - 28px) * 421 / 1432);
   }
   .weekly-offer__features {
     grid-column: 1;
@@ -2527,6 +2537,41 @@ a:focus-visible, button:focus-visible {
   }
   .contact-location iframe {
     height: 340px;
+  }
+}
+
+.advantages__photo, .discover__gallery a img {
+  transform-origin: center;
+  transform: scale(1) translate(0, 0);
+  transition: transform 4s ease-in-out;
+}
+
+.advantages__card:hover .advantages__photo,
+.advantages__card:focus-visible .advantages__photo,
+.discover__gallery a:hover img,
+.discover__gallery a:focus-visible img {
+  transform: scale(1.1) translate(-1%, -1%);
+  transition-duration: 8s;
+}
+
+.discover__gallery a {
+  display: block;
+  overflow: hidden;
+}
+
+.discover__gallery a:focus-visible {
+  outline-offset: -4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .advantages__photo, .discover__gallery a img {
+    transition: none;
+  }
+  .advantages__card:hover .advantages__photo,
+  .advantages__card:focus-visible .advantages__photo,
+  .discover__gallery a:hover img,
+  .discover__gallery a:focus-visible img {
+    transform: none;
   }
 }
 
