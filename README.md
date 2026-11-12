@@ -65,7 +65,7 @@ Tüm görseller yereldir, boyut ve alternatif metinleri tanımlıdır. Menü/yas
 
 `list.html` ortak header/footer kopyaları, kullanıcının sağladığı `23feaa3f9742f508718244cf6c6817c08e4b474b.png` sabit bannerı ve sekiz örnek araç kartı içerir. Banner başlığı Araçlarımız’dır; Swiper veya slider bağımlılığı yüklenmez. Ortak JavaScript menüyü bu sayfada Swiper olmadan da çalıştırır.
 
-Izgara kendi alanına göre 4/3/2/1 sütuna geçer (1248/932/616px eşikleri). Sol filtre eklenmemiştir; filtre arayüzü kullanıcının ayrı tarifini bekler. Liste placeholder noindex kaldırılmıştır; başlık, meta açıklama ve tek h1 tanımlanmıştır. Footer hover rengi tüm sayfalarda turuncu, alt çizgisizdir.
+Izgara kendi alanına göre 4/3/2/1 sütuna geçer (1248/932/616px eşikleri). Sol filtre yoktur; araç listesi üstünde kullanıcının tarif ettiği kategori butonları bulunur. Liste placeholder noindex kaldırılmıştır; başlık, meta açıklama ve tek h1 tanımlanmıştır. Footer hover rengi tüm sayfalarda turuncu, alt çizgisizdir.
 
 Bu aşamada Figma MCP plan okuma sınırına ulaşıldığı için liste bannerının Figma’daki ayrıntılı ölçüleri karşılaştırılamadı; kullanıcı görseliyle responsive sabit banner hazırlanmıştır.
 
@@ -80,3 +80,19 @@ Fancybox 6.1.15 ve Türkçe çevirisi `assets/plugins/fancybox` altındadır. K�
 Teknik bilgiler/donanımlar tasarımdaki örnek verilerdir; renk, eklenen kırmızı fotoğrafa göre yazıldı. Gerçek stok verileri yayından önce güncellenmelidir. Bu statik şablon URL’deki `arac` parametresine göre başka araç verisi yüklemez; tüm örnek ürünlere ait dinamik veri entegrasyonu ayrı iştir. İletişim ve tüm sorular bağlantıları sonraki sayfaları hedefler.
 
 Kontrol: gerçek Swiper ve Fancybox dağıtımlarıyla DOM testinde fotoğraf galerisi açıldı, üç öğe görüldü, YouTube iframe’inin doğru video kimliğiyle açıldığı doğrulandı; menü/slider/sekme regresyonları geçti. Gerçek tarayıcıda görsel kontrol yapılmadı.
+
+## Liste kategori filtreleri
+
+Liste üstünde Otomobil, Arazi/SUV/Pickup ve Minivan/Panelvan butonları eklendi. İlk görseldeki tekrarlayan özellik etiketleri yerine, kullanıcının netleştirdiği ikinci görselin başlıkları kullanılır. Başlangıçta tüm sekiz araç görünür. Seçim tek kategoriyi gösterir; aynı butona tekrar basmak seçimi kaldırır. Sonuç sayısı canlı güncellenir, boş sonuç mesajı desteklenir. Kategori verisi her kartın `data-category` alanındadır; filtreler yalnızca `assets/js/list.js` ile liste sayfasında çalışır.
+
+Seçili buton turuncu/beyaz; mevcut yerel ok SVG’si normalde sağ alta, seçiliyken beyaz olarak sağ üste döner. Küçük alanlarda üç buton alt alta gelir. Tüm kartlar ilk HTML içinde kalır; SEO için içerik JavaScript ile sonradan üretilmez.
+
+## İletişim sayfası
+
+`contact.html`, mevcut lacivert/turuncu tasarım diliyle hazırlanmıştır: başlık bandı, İstanbul/İzmir iletişim kartları, statik HTML formu ve geniş konum haritası. Adres, telefon ve e-posta içerikleri kullanıcının referansı https://www.esdenizcilik.com/tr/iletisim sayfasından alınmıştır; bu bilgiler Sıfır Araç Danışmanı’nın gerçek iletişim bilgileri olarak ayrıca doğrulanmamıştır.
+
+Harita, referans sayfadaki İstanbul koordinatını (41.10491246815286,28.98759573698044) kullanan, API anahtarı içermeyen bir Google Maps iframe’idir. iframe lazy-load, erişilebilir title ve mobil boyutlara sahiptir. Google haritası araç içinde görsel olarak açılamadığı için render kontrolü yapılmamıştır.
+
+Kullanıcı yalnızca HTML form istedi: action, submit butonu, mailto taslağı, fetch/AJAX veya gönderim JavaScript’i eklenmemiştir. Dört alanın label/name/id/type/autocomplete bilgileri hazırdır; Gönder butonu type=button’dır. Backend daha sonra gönderim adresini ve submit davranışını bağlayacaktır. Ortak main.js sadece mevcut site menüsü için kullanılır.
+
+Index/list/detail sayfalarındaki iletişim bağlantıları contact.html olarak güncellenmiştir; Instagram bağlantısız kalır. Yeni sayfa ve mevcut menü/slider/galeri/filtre regresyonları test edilmiştir. SCSS derlenmiştir. Gerçek tarayıcıda görsel QA yapılmamıştır.

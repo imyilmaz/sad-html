@@ -537,3 +537,109 @@ a:focus-visible, button:focus-visible { outline: 2px solid #ff6b2c; outline-offs
   @media (max-width: 900px) { grid-template-columns: minmax(0, 1fr); &__intro > img { width: min(100%, 260px); } }
   @media (max-width: 650px) { padding: 48px 0; summary { padding-left: 20px; font-size: 16px; } details > p { padding-inline: 20px; } }
 }
+
+.vehicle-filters {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 40px;
+  &__button {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    min-width: 0; min-height: 96px; padding: 24px clamp(24px, 2.8vw, 48px);
+    border: 0; border-radius: 200px; background: #fff; color: $text-color;
+    box-shadow: 0 0 40px rgb(0 0 0 / 8%); text-align: left;
+    font-family: inherit; font-size: 18px; font-weight: 700; line-height: 1.35; cursor: pointer;
+    transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+  }
+  &__button img { display: block; flex: 0 0 auto; transform: rotate(90deg); transition: transform .2s ease; }
+  &__button:hover { box-shadow: 0 0 40px rgb(0 0 0 / 14%); }
+  &__button:hover, &__button:focus-visible, &__button[aria-pressed='true'] { background: #ff6b2c; color: #fff; }
+  &__button:hover img, &__button:focus-visible img, &__button[aria-pressed='true'] img { transform: rotate(0); filter: brightness(0) invert(1); }
+  &__button:focus-visible { outline: 2px solid $brand-color; outline-offset: 4px; }
+}
+@container vehicle-list (max-width: 900px) {
+  .vehicle-filters { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-bottom: 28px; }
+  .vehicle-filters__button { min-height: 76px; padding: 20px 28px; font-size: 16px; }
+}
+.vehicle-list__grid > [hidden], .vehicle-list__empty[hidden] { display: none; }
+.vehicle-list__empty { margin: 0; padding: 40px 24px; text-align: center; background: $border-color; font-size: 17px; line-height: 1.5; }
+
+.contact-hero, .contact-content, .contact-location {
+  width: min(1600px, calc(100% - 128px)); margin-inline: auto;
+  @media (max-width: 1000px) { width: calc(100% - 48px); }
+  @media (max-width: 650px) { width: calc(100% - 32px); }
+}
+.contact-hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;
+  min-height: 260px; margin-top: 20px; padding: 52px clamp(24px, 4.75vw, 82px);
+  background: $brand-color; color: #fff;
+  &__stripe { position: absolute; z-index: -1; top: -160px; right: 12%; width: 236px; height: auto; pointer-events: none; }
+  &__content { max-width: 720px; }
+  &__eyebrow { margin: 0 0 16px; color: #ff6b2c; font-size: 13px; font-weight: 700; letter-spacing: .12em; }
+  h1 { font-size: clamp(36px, 3.24vw, 56px); line-height: 1.1; margin: 0 0 20px; }
+  &__description { margin: 0; font-size: 18px; line-height: 1.5; font-weight: 300; }
+  &__breadcrumb ol { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; margin: 0; padding: 0; font-size: 13px; line-height: 1.5; }
+  &__breadcrumb li + li::before { content: '/'; display: inline-block; margin-right: 12px; color: #ff6b2c; }
+  &__breadcrumb a { color: #fff; text-decoration: none; }
+  &__breadcrumb a:hover { color: #ff6b2c; }
+  @media (max-width: 800px) { align-items: flex-start; flex-direction: column; gap: 24px; }
+  @media (max-width: 650px) { min-height: 0; padding: 36px 24px; margin-top: 16px; &__description { font-size: 16px; } &__stripe { right: -12%; } }
+}
+.contact-content {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px;
+  padding: 64px clamp(24px, 4.75vw, 82px);
+  &__offices { min-width: 0; }
+  &__intro { margin-bottom: 32px; }
+  &__intro h2 { margin: 0 0 16px; font-size: clamp(26px, 1.852vw, 32px); line-height: 1.25; }
+  &__intro p { margin: 0; max-width: 480px; font-size: 17px; font-weight: 300; line-height: 1.6; }
+  @media (max-width: 1100px) { gap: 32px; }
+  @media (max-width: 900px) { grid-template-columns: minmax(0, 1fr); }
+  @media (max-width: 650px) { padding: 36px 0; }
+}
+.contact-office {
+  background: #fff; border: 1px solid $border-color; padding: 32px; margin-top: 20px;
+  &__heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+  h3 { color: $brand-color; font-size: 28px; line-height: 1.2; margin: 0; }
+  &__label { color: #ff6b2c; font-size: 12px; letter-spacing: .12em; font-weight: 700; }
+  address { font-size: 16px; line-height: 1.65; font-style: normal; font-weight: 300; }
+  &__details { display: grid; gap: 16px; padding-block: 24px; margin: 0; }
+  &__details dt { color: #666; font-size: 13px; line-height: 1.5; margin-bottom: 5px; }
+  &__details dd { margin: 0; font-size: 18px; line-height: 1.4; font-weight: 700; }
+  &__details a { color: $text-color; text-decoration: none; overflow-wrap: anywhere; }
+  &__details a:hover { color: #ff6b2c; }
+  &__directions { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; padding-top: 16px; border-top: 1px solid $border-color; color: $brand-color; text-decoration: none; font-size: 15px; font-weight: 700; }
+  &__directions img { display: block; flex-shrink: 0; }
+  &__directions:hover { color: #ff6b2c; }
+  @media (max-width: 650px) { padding: 24px; h3 { font-size: 26px; } }
+}
+.contact-message {
+  padding: 40px; background: $border-color; align-self: start; min-width: 0;
+  &__eyebrow { margin: 0 0 14px; font-size: 12px; font-weight: 700; letter-spacing: .12em; color: $brand-color; }
+  h2 { margin: 0 0 16px; font-size: clamp(28px, 2.315vw, 40px); line-height: 1.15; color: #ff6b2c; }
+  &__description { margin: 0 0 32px; font-size: 16px; line-height: 1.6; font-weight: 300; }
+  @media (max-width: 650px) { padding: 28px 20px; }
+}
+.contact-form {
+  display: grid; gap: 22px;
+  &__field { min-width: 0; }
+  label { display: block; margin-bottom: 10px; font-size: 14px; line-height: 1.4; font-weight: 700; }
+  input, textarea { display: block; width: 100%; min-height: 54px; padding: 16px; border: 1px solid transparent; border-radius: 0; background: #fff; color: $text-color; font-family: inherit; font-size: 16px; line-height: 1.5; }
+  input::placeholder, textarea::placeholder { color: #777; }
+  input:focus-visible, textarea:focus-visible { border-color: $brand-color; outline: 2px solid $brand-color; outline-offset: 2px; }
+  textarea { min-height: 174px; resize: vertical; }
+  &__button { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; width: 236px; max-width: 100%; min-height: 54px; margin-top: 6px; padding: 12px 24px; border: 0; border-radius: 200px; background: #ff6b2c; color: #fff; font-family: inherit; font-weight: 700; font-size: 14px; line-height: 1.4; cursor: pointer; }
+  &__button img { display: block; flex-shrink: 0; filter: brightness(0) invert(1); }
+  &__button:hover { background: #df4a12; }
+  @media (max-width: 650px) { &__button { width: 100%; } }
+}
+.contact-location {
+  padding: 0 clamp(24px, 4.75vw, 82px) 80px;
+  &__heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+  &__eyebrow { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .12em; color: #ff6b2c; }
+  h2 { margin: 0; font-size: clamp(28px, 1.852vw, 32px); line-height: 1.2; color: $brand-color; }
+  &__directions { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; color: $text-color; text-decoration: none; font-size: 15px; font-weight: 700; }
+  &__directions img { display: block; flex-shrink: 0; }
+  &__directions:hover { color: #ff6b2c; }
+  &__map { background: $border-color; }
+  iframe { display: block; width: 100%; height: 480px; border: 0; }
+  @media (max-width: 800px) { &__heading { align-items: flex-start; flex-direction: column; gap: 16px; } }
+  @media (max-width: 650px) { padding: 0 0 48px; iframe { height: 340px; } }
+}
