@@ -39,7 +39,8 @@ body.menu-open {
   overflow: hidden;
 }
 
-a:focus-visible, button:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid #ff6b2c;
   outline-offset: 5px;
 }
@@ -105,7 +106,9 @@ a:focus-visible, button:focus-visible {
   display: contents;
 }
 
-.site-menu__top, .menu-toggle, .menu-overlay {
+.site-menu__top,
+.menu-toggle,
+.menu-overlay {
   display: none;
 }
 
@@ -181,7 +184,9 @@ a:focus-visible, button:focus-visible {
   margin-bottom: 24px;
   flex-shrink: 0;
 }
-.site-header.is-compact .site-header__primary, .site-header.is-compact .site-header__secondary, .site-header.is-compact .site-header__right {
+.site-header.is-compact .site-header__primary,
+.site-header.is-compact .site-header__secondary,
+.site-header.is-compact .site-header__right {
   flex-direction: column;
   align-items: stretch;
   gap: 0;
@@ -337,7 +342,9 @@ a:focus-visible, button:focus-visible {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
@@ -387,7 +394,7 @@ a:focus-visible, button:focus-visible {
 .vehicle-offers__arrow {
   position: absolute;
   z-index: 2;
-  top: calc((100% - 261px) / 2);
+  top: 50%;
   transform: translateY(-50%);
   display: grid;
   place-items: center;
@@ -401,6 +408,9 @@ a:focus-visible, button:focus-visible {
 }
 .vehicle-offers__prev {
   left: -20px;
+}
+.vehicle-offers__prev img {
+  transform: rotate(180deg);
 }
 .vehicle-offers__next {
   right: -20px;
@@ -566,18 +576,21 @@ a:focus-visible, button:focus-visible {
   opacity: 1;
 }
 
-.process-steps, .vehicle-catalog {
+.process-steps,
+.vehicle-catalog {
   width: min(1600px, 100% - 128px);
   margin-inline: auto;
   padding-inline: clamp(24px, 4.75vw, 82px);
 }
 @media (max-width: 1000px) {
-  .process-steps, .vehicle-catalog {
+  .process-steps,
+  .vehicle-catalog {
     width: calc(100% - 48px);
   }
 }
 @media (max-width: 650px) {
-  .process-steps, .vehicle-catalog {
+  .process-steps,
+  .vehicle-catalog {
     width: calc(100% - 32px);
     padding-inline: 0;
   }
@@ -1016,6 +1029,7 @@ a:focus-visible, button:focus-visible {
 .weekly-offer__slider {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 60px;
+  padding-right: 34px;
   container-type: inline-size;
 }
 .weekly-offer .swiper-slide {
@@ -1114,7 +1128,8 @@ a:focus-visible, button:focus-visible {
   position: absolute;
   inset: auto;
   top: calc((100% - 60px) / 2);
-  left: 144px;
+  left: auto;
+  right: 7px;
   width: auto;
   height: auto;
   margin: 0;
@@ -1139,9 +1154,6 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 1400px) {
   .weekly-offer__layout {
     column-gap: 32px;
-  }
-  .weekly-offer .weekly-offer__pagination {
-    left: 128px;
   }
 }
 @media (max-width: 1100px) {
@@ -1169,10 +1181,6 @@ a:focus-visible, button:focus-visible {
   .weekly-offer__model {
     margin-bottom: 24px;
   }
-  .weekly-offer .weekly-offer__pagination {
-    left: 104px;
-    top: calc((100cqw - 120px) * 421 / 1432);
-  }
 }
 @media (max-width: 1000px) {
   .weekly-offer {
@@ -1195,11 +1203,9 @@ a:focus-visible, button:focus-visible {
   .weekly-offer__media {
     grid-column: 1;
     grid-row: 1;
-    padding-left: 28px;
   }
   .weekly-offer .weekly-offer__pagination {
-    left: 4px;
-    top: calc((100cqw - 28px) * 421 / 1432);
+    top: calc((100% - 36px) / 2);
   }
   .weekly-offer__features {
     grid-column: 1;
@@ -1611,17 +1617,23 @@ a:focus-visible, button:focus-visible {
   }
 }
 
-.detail-breadcrumb, .vehicle-detail, .detail-faq {
+.detail-breadcrumb,
+.vehicle-detail,
+.detail-faq {
   width: min(1600px, 100% - 128px);
   margin-inline: auto;
 }
 @media (max-width: 1000px) {
-  .detail-breadcrumb, .vehicle-detail, .detail-faq {
+  .detail-breadcrumb,
+  .vehicle-detail,
+  .detail-faq {
     width: calc(100% - 48px);
   }
 }
 @media (max-width: 650px) {
-  .detail-breadcrumb, .vehicle-detail, .detail-faq {
+  .detail-breadcrumb,
+  .vehicle-detail,
+  .detail-faq {
     width: calc(100% - 32px);
   }
 }
@@ -1669,7 +1681,7 @@ a:focus-visible, button:focus-visible {
 
 .vehicle-heading {
   display: grid;
-  grid-template-columns: 116px minmax(0, 544fr) minmax(0, 450fr) 236px;
+  grid-template-columns: 120px minmax(0, 544fr) minmax(0, 450fr) 236px;
   gap: 30px;
   align-items: center;
   padding: 40px clamp(24px, 4.75vw, 82px);
@@ -1680,13 +1692,20 @@ a:focus-visible, button:focus-visible {
 .vehicle-heading__brand {
   display: grid;
   place-items: center;
-  min-height: 88px;
+  width: 120px;
+  height: 120px;
 }
 .vehicle-heading__brand img {
   display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 120px;
+  max-height: 120px;
+  object-fit: contain;
 }
 .vehicle-heading__name {
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 .vehicle-heading h1 {
   margin: 0 0 8px;
@@ -1727,7 +1746,7 @@ a:focus-visible, button:focus-visible {
 }
 @media (max-width: 1250px) {
   .vehicle-heading {
-    grid-template-columns: 88px minmax(0, 1fr) auto;
+    grid-template-columns: 120px minmax(0, 1fr) auto;
     gap: 24px;
   }
   .vehicle-heading__price {
@@ -1740,12 +1759,9 @@ a:focus-visible, button:focus-visible {
 }
 @media (max-width: 700px) {
   .vehicle-heading {
-    grid-template-columns: 66px minmax(0, 1fr);
+    grid-template-columns: 120px minmax(0, 1fr);
     padding: 24px 20px;
     gap: 20px;
-  }
-  .vehicle-heading__brand {
-    min-height: 50px;
   }
   .vehicle-heading__price {
     grid-column: 1/-1;
@@ -1760,16 +1776,17 @@ a:focus-visible, button:focus-visible {
 .detail-overview {
   width: calc(100% - clamp(48px, 9.5vw, 164px));
   margin: 40px auto 0;
-  padding: 36px 60px 50px;
+  padding: 20px;
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
   align-items: start;
   gap: 64px;
-  background: #f1f1f1;
+  background: #fff;
+  border: 1px solid #F1F1F1;
+  border-radius: 0;
 }
 @media (max-width: 1400px) {
   .detail-overview {
-    padding-inline: 32px;
     gap: 32px;
   }
 }
@@ -1782,7 +1799,6 @@ a:focus-visible, button:focus-visible {
   .detail-overview {
     width: 100%;
     margin-top: 24px;
-    padding: 20px 16px;
     gap: 28px;
   }
 }
@@ -1862,29 +1878,6 @@ a:focus-visible, button:focus-visible {
 
 .vehicle-specifications {
   min-width: 0;
-  padding: 15px;
-  border: 1px solid #e4e8ee;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 6px 24px rgba(11, 32, 104, 0.04);
-}
-.vehicle-specifications h2 {
-  position: relative;
-  margin: 0 0 8px;
-  padding-bottom: 18px;
-  color: #0b2068;
-  font-size: 22px;
-  line-height: 1.25;
-}
-.vehicle-specifications h2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 36px;
-  height: 3px;
-  border-radius: 2px;
-  background: #ff6b2c;
 }
 .vehicle-specifications dl {
   margin: 0;
@@ -1894,14 +1887,13 @@ a:focus-visible, button:focus-visible {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: center;
   gap: 14px;
-  padding-block: 6px;
-  border-bottom: 1px solid #edf0f4;
+  padding: 6px 12px;
+  background: #fff;
   font-size: 14px;
   line-height: 1.5;
 }
-.vehicle-specifications dl > div:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
+.vehicle-specifications dl > div:nth-child(odd) {
+  background: #F1F1F1;
 }
 .vehicle-specifications dt {
   min-width: 0;
@@ -1935,13 +1927,6 @@ a:focus-visible, button:focus-visible {
   color: #5a6472;
 }
 @media (max-width: 650px) {
-  .vehicle-specifications {
-    padding: 15px;
-    border-radius: 12px;
-  }
-  .vehicle-specifications h2 {
-    font-size: 20px;
-  }
   .vehicle-specifications dl > div {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     gap: 14px;
@@ -1951,23 +1936,39 @@ a:focus-visible, button:focus-visible {
   }
 }
 
-.vehicle-description, .vehicle-video {
+.vehicle-details-content {
+  margin-top: 40px;
+  padding-block: 60px;
+  background: #F1F1F1;
+  box-shadow: 0 0 0 100vmax #F1F1F1;
+  clip-path: inset(0 -100vmax);
+}
+@media (max-width: 650px) {
+  .vehicle-details-content {
+    padding-block: 32px;
+  }
+}
+
+.vehicle-description,
+.vehicle-video {
   width: min(1196px, 100% - 64px);
   margin-inline: auto;
 }
 @media (max-width: 650px) {
-  .vehicle-description, .vehicle-video {
+  .vehicle-description,
+  .vehicle-video {
     width: 100%;
   }
 }
 
 .vehicle-description {
-  margin-top: 100px;
+  margin-top: 0;
 }
 .vehicle-description h2 {
   font-size: clamp(24px, 1.447vw, 30px);
   line-height: 1.3;
   margin: 0 0 20px;
+  color: #FF6B2C;
 }
 .vehicle-description p {
   margin: 0;
@@ -1981,9 +1982,6 @@ a:focus-visible, button:focus-visible {
   margin: 32px 0 20px;
 }
 @media (max-width: 650px) {
-  .vehicle-description {
-    margin-top: 40px;
-  }
   .vehicle-description p {
     font-size: 16px;
   }
@@ -1992,15 +1990,15 @@ a:focus-visible, button:focus-visible {
 .vehicle-equipment {
   columns: 2;
   column-gap: 80px;
-  padding-left: 20px;
-  margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
   font-size: 16px;
   line-height: 27px;
   font-weight: 300;
 }
 .vehicle-equipment li {
   break-inside: avoid;
-  padding-left: 4px;
 }
 @media (max-width: 700px) {
   .vehicle-equipment {
@@ -2208,7 +2206,8 @@ a:focus-visible, button:focus-visible {
     font-size: 16px;
   }
 }
-.vehicle-list__grid > [hidden], .vehicle-list__empty[hidden] {
+.vehicle-list__grid > [hidden],
+.vehicle-list__empty[hidden] {
   display: none;
 }
 
@@ -2221,17 +2220,23 @@ a:focus-visible, button:focus-visible {
   line-height: 1.5;
 }
 
-.contact-hero, .contact-content, .contact-location {
+.contact-hero,
+.contact-content,
+.contact-location {
   width: min(1600px, 100% - 128px);
   margin-inline: auto;
 }
 @media (max-width: 1000px) {
-  .contact-hero, .contact-content, .contact-location {
+  .contact-hero,
+  .contact-content,
+  .contact-location {
     width: calc(100% - 48px);
   }
 }
 @media (max-width: 650px) {
-  .contact-hero, .contact-content, .contact-location {
+  .contact-hero,
+  .contact-content,
+  .contact-location {
     width: calc(100% - 32px);
   }
 }
@@ -2494,7 +2499,8 @@ a:focus-visible, button:focus-visible {
   line-height: 1.4;
   font-weight: 700;
 }
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
   display: block;
   width: 100%;
   min-height: 54px;
@@ -2507,10 +2513,12 @@ a:focus-visible, button:focus-visible {
   font-size: 16px;
   line-height: 1.5;
 }
-.contact-form input::placeholder, .contact-form textarea::placeholder {
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
   color: #777;
 }
-.contact-form input:focus-visible, .contact-form textarea:focus-visible {
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
   border-color: #0b2068;
   outline: 2px solid #0b2068;
   outline-offset: 2px;
@@ -2618,7 +2626,8 @@ a:focus-visible, button:focus-visible {
   }
 }
 
-.advantages__photo, .discover__gallery a img {
+.advantages__photo,
+.discover__gallery a img {
   transform-origin: center;
   transform: scale(1) translate(0, 0);
   transition: transform 4s ease-in-out;
@@ -2642,7 +2651,8 @@ a:focus-visible, button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .advantages__photo, .discover__gallery a img {
+  .advantages__photo,
+  .discover__gallery a img {
     transition: none;
   }
   .advantages__card:hover .advantages__photo,
@@ -2708,7 +2718,8 @@ a:focus-visible, button:focus-visible {
   background: #df4a12;
 }
 
-.dealer-button span, .dealer-text-link span {
+.dealer-button span,
+.dealer-text-link span {
   font-size: 28px;
   line-height: 1;
 }
@@ -2918,7 +2929,9 @@ a:focus-visible, button:focus-visible {
   }
 }
 @media (max-width: 800px) {
-  .dealer-intro, .dealer-application, .dealer-section__heading {
+  .dealer-intro,
+  .dealer-application,
+  .dealer-section__heading {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
@@ -3400,7 +3413,7 @@ a:focus-visible, button:focus-visible {
 }
 .blog-article__header {
   max-width: 960px;
-  margin: 0 auto 36px;
+  margin: 36px auto 0;
   text-align: center;
 }
 .blog-article h1 {
@@ -3433,14 +3446,14 @@ a:focus-visible, button:focus-visible {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 2.8/1;
+  aspect-ratio: 4.2/1;
   object-fit: cover;
   object-position: center 43%;
   background: #f1f1f1;
 }
 .blog-article__layout {
   display: grid;
-  grid-template-columns: minmax(0, 280px) minmax(0, 760px);
+  grid-template-columns: minmax(0, 760px);
   justify-content: center;
   gap: clamp(32px, 5vw, 80px);
   margin-top: 48px;
@@ -3524,7 +3537,7 @@ a:focus-visible, button:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .blog-article__layout {
-    grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 760px);
     gap: 32px;
   }
 }
@@ -3536,7 +3549,7 @@ a:focus-visible, button:focus-visible {
 }
 @media (max-width: 800px) {
   .blog-article__layout {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 760px);
   }
   .blog-article__contents ol {
     display: grid;
@@ -3547,11 +3560,12 @@ a:focus-visible, button:focus-visible {
     margin: 0;
   }
   .blog-article__cover {
-    aspect-ratio: 16/9;
+    aspect-ratio: 8/3;
   }
 }
 @media (max-width: 650px) {
-  .blog-list__grid, .blog-related__grid {
+  .blog-list__grid,
+  .blog-related__grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
@@ -3569,7 +3583,8 @@ a:focus-visible, button:focus-visible {
   .blog-article__author {
     justify-content: flex-start;
   }
-  .blog-article__lead, .blog-article__body p {
+  .blog-article__lead,
+  .blog-article__body p {
     font-size: 16px;
   }
   .blog-article__contents ol {
@@ -3591,15 +3606,18 @@ a:focus-visible, button:focus-visible {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .blog-card__link:hover img, .blog-card__link:focus-visible img {
+  .blog-card__link:hover img,
+  .blog-card__link:focus-visible img {
     transform: none;
   }
 }
-.corporate-hero, .corporate-section {
+.corporate-hero,
+.corporate-section {
   width: min(1436px, 100% - 128px);
   margin-inline: auto;
 }
-.corporate-hero h2, .corporate-section h2 {
+.corporate-hero h2,
+.corporate-section h2 {
   margin: 0 0 28px;
   color: #0b2068;
   font-size: clamp(32px, 3vw, 50px);
@@ -3649,7 +3667,7 @@ a:focus-visible, button:focus-visible {
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: 40px;
   align-items: end;
-  margin-bottom: 48px;
+  margin: 48px 0 0;
 }
 .corporate-hero h1 {
   margin: 0;
@@ -3910,15 +3928,21 @@ a:focus-visible, button:focus-visible {
   }
 }
 @media (max-width: 1000px) {
-  .corporate-hero, .corporate-section, .corporate-manifesto {
+  .corporate-hero,
+  .corporate-section,
+  .corporate-manifesto {
     width: calc(100% - 48px);
   }
-  .corporate-section, .corporate-manifesto {
+  .corporate-section,
+  .corporate-manifesto {
     margin-block: 64px;
   }
 }
 @media (max-width: 800px) {
-  .corporate-hero__heading, .corporate-story, .corporate-values, .corporate-perspective {
+  .corporate-hero__heading,
+  .corporate-story,
+  .corporate-values,
+  .corporate-perspective {
     grid-template-columns: minmax(0, 1fr);
     gap: 32px;
   }
@@ -3960,14 +3984,17 @@ a:focus-visible, button:focus-visible {
   }
 }
 @media (max-width: 650px) {
-  .corporate-hero, .corporate-section, .corporate-manifesto {
+  .corporate-hero,
+  .corporate-section,
+  .corporate-manifesto {
     width: calc(100% - 32px);
   }
-  .corporate-section, .corporate-manifesto {
+  .corporate-section,
+  .corporate-manifesto {
     margin-block: 48px;
   }
   .corporate-hero__heading {
-    margin-bottom: 32px;
+    margin: 32px 0 0;
   }
   .corporate-hero__heading > p {
     font-size: 16px;
