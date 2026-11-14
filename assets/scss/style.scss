@@ -4713,3 +4713,21 @@ button:focus-visible {
     }
   }
 }
+.corporate-hero--compact {
+  .corporate-hero__visual { min-height: 0; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .corporate-hero__photo { height: 340px; object-position: center 44%; }
+  .corporate-hero__signature { min-height: 340px; padding: 32px clamp(28px, 3.2vw, 52px); }
+  h1 { margin: 20px 0 0; color: #fff; font-size: clamp(32px, 2.8vw, 48px); line-height: 1.15; }
+  h1 span { color: #ff925e; }
+  .corporate-hero__signature p { margin: 20px 0 0; max-width: 420px; font-size: 16px; line-height: 1.65; letter-spacing: 0; }
+  @media (max-width: 800px) {
+    .corporate-hero__visual { grid-template-columns: minmax(0, 1fr); }
+    .corporate-hero__photo { height: 260px; }
+    .corporate-hero__signature { min-height: 0; padding: 32px; }
+  }
+  @media (max-width: 650px) {
+    .corporate-hero__photo { height: 220px; }
+    .corporate-hero__signature { padding: 32px 24px; }
+    h1 { font-size: clamp(28px, 7vw, 36px); }
+  }
+}
