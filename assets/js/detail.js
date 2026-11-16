@@ -1,6 +1,37 @@
 'use strict';
 
 (() => {
+  const requestedVehicle = new URLSearchParams(window.location.search).get('arac');
+  const vehicle = window.siteVehicles?.find(item => item.id === requestedVehicle);
+  if (vehicle) {
+    document.querySelector('#vehicle-title').textContent = vehicle.name;
+    document.querySelector('[data-vehicle-field="color"]').textContent = vehicle.color;
+    document.querySelector('[data-vehicle-contact]').href = `contact.html?arac=${encodeURIComponent(vehicle.id)}`;
+    document.title = `${vehicle.name} Araç Fotoğrafları | Sıfır Araç Danışmanı`;
+    document.querySelector('meta[name="description"]').content = `${vehicle.name} fotoğraflarını inceleyin. Güncel özellikler, fiyat ve satın alma koşulları için bilgi alın.`;
+    const gallerySection = document.querySelector('.detail-gallery');
+    gallerySection.setAttribute('aria-label', `${vehicle.name} fotoğraf galerisi`);
+    const wrapper = gallerySection.querySelector('.swiper-wrapper');
+    wrapper.replaceChildren(...vehicle.photos.map((photo, index) => {
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+      const link = document.createElement('a');
+      link.className = 'detail-gallery__image-link';
+      link.href = photo;
+      link.dataset.fancybox = 'vehicle-gallery';
+      link.dataset.caption = `${vehicle.name} – fotoğraf ${index + 1}`;
+      link.setAttribute('aria-label', `${index + 1}. araç fotoğrafını büyüt`);
+      const image = document.createElement('img');
+      image.src = photo;
+      image.alt = `${vehicle.color} ${vehicle.name} – görünüm ${index + 1}`;
+      image.width = 800; image.height = 600;
+      image.decoding = 'async';
+      if (index) image.loading = 'lazy';
+      else image.fetchPriority = 'high';
+      link.append(image); slide.append(link);
+      return slide;
+    }));
+  }
   const gallery = document.querySelector('.detail-gallery__swiper');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (gallery && typeof Swiper !== 'undefined') {
@@ -15,6 +46,7 @@
       slidesPerView: 1,
       rewind: true,
       speed: reducedMotion ? 0 : 500,
+      navigation: { prevEl: '.detail-gallery__prev', nextEl: '.detail-gallery__next' },
       pagination: {
         el: document.querySelector('.detail-gallery__pagination'),
         clickable: true,
@@ -25,7 +57,7 @@
 
       a11y: {
         enabled: true,
-        containerMessage: 'Opel Grandland fotoğrafları',
+        containerMessage: vehicle ? `${vehicle.name} fotoğrafları` : 'Renault Clio fotoğrafları',
         prevSlideMessage: 'Önceki fotoğraf',
         nextSlideMessage: 'Sonraki fotoğraf',
         slideLabelMessage: '{{index}} / {{slidesLength}}',
